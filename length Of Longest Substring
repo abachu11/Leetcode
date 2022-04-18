@@ -1,0 +1,12 @@
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        count = 0
+        s = list(s)
+        for i in range(len(s)):
+            common = [s[i]]
+            index = i+1
+            while index < len(s) and s[index] not in common:
+                common.append(s[index])
+                index += 1
+            count = max(count,len(common))
+        return count
